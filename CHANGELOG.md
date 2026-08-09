@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Pinned LeviLamina to `26.10.13` for the target development server ABI
 - Pinned LeviBuildScript to `0.6.1`
+- Pinned the CI xmake toolchain to the previously verified `3.0.9`
 - Sourced the packaged mod version from `tooth.json`
 - Removed the workflow version override so artifact and manifest versions cannot diverge
 - Removed the extra parameterless `Times` packet from title timing tests
