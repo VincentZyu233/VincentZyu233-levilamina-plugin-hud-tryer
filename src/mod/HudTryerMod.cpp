@@ -11,7 +11,7 @@
 
 #include "mc/deps/core/utility/buffer_span.h"
 #include "mc/legacy/ActorUniqueID.h"
-#include "mc/nbt/CompoundTag.h"
+#include "mc/deps/nbt/CompoundTag.h"
 #include "mc/network/packet/ClientboundMapItemDataPacket.h"
 #include "mc/network/packet/InventorySlotPacket.h"
 #include "mc/network/packet/MobEquipmentPacket.h"

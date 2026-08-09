@@ -101,6 +101,14 @@ jobs:
       - name: Configure
         run: xmake f -vD -y -p windows -a x64 -m release --target_type=server
 
+      - name: Save configured xmake packages
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            ${{ runner.temp }}/.xmake/packages
+            ~/AppData/Local/.xmake/packages
+          key: ${{ runner.os }}-xmake-3.0.9-${{ hashFiles('xmake.lua') }}
+
       - name: Build
         run: xmake
 
