@@ -10,6 +10,8 @@ option_end()
 
 local levilamina_version = "26.10.13"
 
+-- libssh2 1.11.1's prebuilt Windows package references this exact zlib package path.
+add_requires("zlib 1.3.1", {override = true})
 add_requires("levilamina " .. levilamina_version, {configs = {target_type = get_config("target_type")}})
 
 add_requires("levibuildscript 0.6.1")
