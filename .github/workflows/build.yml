@@ -93,9 +93,7 @@ jobs:
           path: |
             ${{ runner.temp }}/.xmake/packages
             ~/AppData/Local/.xmake/packages
-          key: ${{ runner.os }}-xmake-${{ hashFiles('xmake.lua') }}
-          restore-keys: |
-            ${{ runner.os }}-xmake-
+          key: ${{ runner.os }}-xmake-3.0.9-${{ hashFiles('xmake.lua') }}
 
       - name: Update xmake repositories
         run: xmake repo -u
