@@ -7,10 +7,6 @@ on:
     branches: [main, master]
   workflow_dispatch:
     inputs:
-      version:
-        description: 'Override version (leave empty to use tooth.json)'
-        required: false
-        default: ''
       create_release:
         description: 'Create GitHub Release'
         type: boolean
@@ -42,10 +38,6 @@ jobs:
           COMMIT_MSG: ${{ github.event.head_commit.message }}
         run: |
           VERSION=$(jq -r '.version' tooth.json)
-
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ github.event.inputs.version }}" ]; then
-            VERSION="${{ github.event.inputs.version }}"
-          fi
 
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "📦 Version: $VERSION"

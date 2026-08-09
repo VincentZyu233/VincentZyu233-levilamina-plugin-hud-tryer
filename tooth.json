@@ -2,10 +2,10 @@
   "format_version": 3,
   "format_uuid": "289f771f-2c9a-4d73-9f3f-8492495a924d",
   "tooth": "github.com/VincentZyu233/levilamina-plugin-hud-tryer",
-  "version": "0.2.0-alpha.1",
+  "version": "0.3.0-alpha.1",
   "info": {
     "name": "hud-tryer",
-    "description": "Minimal LeviLamina plugin for testing Bedrock actionbar, subtitle, and title HUD behavior.",
+    "description": "LeviLamina plugin for testing Bedrock HUD behavior and client-only map previews.",
     "tags": [
       "platform:levilamina",
       "type:mod"
@@ -17,7 +17,7 @@
       "label": "",
       "platform": "win-x64",
       "dependencies": {
-        "github.com/LiteLDev/LeviLamina": "26.10.*"
+        "github.com/LiteLDev/LeviLamina": "26.10.13"
       },
       "assets": [
         {
@@ -51,7 +51,7 @@
       "label": "client",
       "platform": "win-x64",
       "dependencies": {
-        "github.com/LiteLDev/LeviLamina#client": "26.10.*"
+        "github.com/LiteLDev/LeviLamina#client": "26.10.13"
       },
       "assets": [
         {

@@ -8,12 +8,11 @@ option("target_type")
     set_values("server", "client")
 option_end()
 
--- add_requires("levilamina x.x.x") for a specific version
--- add_requires("levilamina develop") to use develop version
--- please note that you should add bdslibrary yourself if using dev version
-add_requires("levilamina", {configs = {target_type = get_config("target_type")}})
+local levilamina_version = "26.10.13"
 
-add_requires("levibuildscript")
+add_requires("levilamina " .. levilamina_version, {configs = {target_type = get_config("target_type")}})
+
+add_requires("levibuildscript 0.6.1")
 
 if not has_config("vs_runtime") then
     set_runtimes("MD")
@@ -21,7 +20,15 @@ end
 
 target("hud-tryer")
     add_rules("@levibuildscript/linkrule")
-    add_rules("@levibuildscript/modpacker")
+    on_load(function (target)
+        import("core.base.json")
+        local metadata = json.loadfile(path.join(os.projectdir(), "tooth.json"))
+        local mod_version = metadata and metadata["version"]
+        if type(mod_version) ~= "string" or mod_version == "" then
+            raise("tooth.json must contain a non-empty string version")
+        end
+        target:add("rules", "@levibuildscript/modpacker", {modVersion = mod_version})
+    end)
     add_cxflags( "/EHa", "/utf-8", "/W4", "/w44265", "/w44289", "/w44296", "/w45263", "/w44738", "/w45204")
     add_defines("NOMINMAX", "UNICODE")
     add_packages("levilamina")

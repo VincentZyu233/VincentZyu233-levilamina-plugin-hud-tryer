@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ll/api/event/ListenerBase.h"
 #include "ll/api/mod/NativeMod.h"
 
 namespace hud_tryer {
@@ -20,6 +21,9 @@ public:
 
 private:
     ll::mod::NativeMod& mSelf;
+    ll::event::ListenerPtr mLevelTickListener;
+    ll::event::ListenerPtr mPlayerDisconnectListener;
+    ll::event::ListenerPtr mPlayerDieListener;
 };
 
 } // namespace hud_tryer
