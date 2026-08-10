@@ -36,9 +36,11 @@ The HUD probes cover:
 
 This repository already includes GitHub Actions workflows for build and release.
 
-The dependency is pinned to LeviLamina `26.10.13` to match the target development server ABI.
+The dependency is pinned to LeviLamina `26.10.14` to match the target production server ABI (BDS `1.26.10.4`, protocol `944`).
 
 `tooth.json` is the single version source for artifact names and the packaged manifest. Preferred verification uses the `Build & Release` workflow with `create_release=false`. Local build, when an equivalent toolchain is available:
+
+Use `python scripts/bump_version.py --dry-run <version>` to validate a version bump, then run the same command without `--dry-run` to update `tooth.json`.
 
 1. `xmake repo -u`
 2. `xmake f -a x64 -m release -p windows --target_type=server -y`

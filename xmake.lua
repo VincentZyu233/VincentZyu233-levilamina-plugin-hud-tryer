@@ -8,7 +8,7 @@ option("target_type")
     set_values("server", "client")
 option_end()
 
-local levilamina_version = "26.10.13"
+local levilamina_version = "26.10.14"
 
 -- libssh2 1.11.1's prebuilt Windows package references this exact zlib package path.
 add_requires("zlib 1.3.1", {override = true})

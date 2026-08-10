@@ -60,10 +60,10 @@ jobs:
 
           BUILD=false
           RELEASE=false
-          if echo "$COMMIT_MSG" | grep -qi "build release"; then
+          if echo "$COMMIT_MSG" | grep -qi "build-release"; then
             BUILD=true
             RELEASE=true
-          elif echo "$COMMIT_MSG" | grep -qi "build action"; then
+          elif echo "$COMMIT_MSG" | grep -qi "build-action"; then
             BUILD=true
           fi
 
@@ -164,7 +164,7 @@ jobs:
           collect_changelog() {
             local range_args=("$@")
             git log "${range_args[@]}" --pretty=format:'%s|%h|%an|%ad' --date=format:'%m-%d %H:%M' --reverse \
-              | grep -Evi '^chore: trigger release; build release\|' \
+              | grep -Evi '^chore: trigger release; build-release\|' \
               | awk -F'|' '{
                   subj=$1
                   if (length(subj) > 88) subj=substr(subj, 1, 85) "..."
